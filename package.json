@@ -1,9 +1,9 @@
 {
-  "name": "hardhat-ts-plugin-boilerplate",
+  "name": "@buildship/hardhat-ipfs-upload",
   "version": "0.0.1",
-  "description": "Hardhat TypeScript plugin boilerplate",
-  "repository": "github:nomiclabs/hardhat-ts-plugin-boilerplate",
-  "author": "Nomic Labs LLC",
+  "description": "Hardhat IPFS uploader via Buildship",
+  "repository": "github:buildship-dev/hardhat-ipfs-upload",
+  "author": "Buildship, Inc.",
   "license": "MIT",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -11,7 +11,9 @@
     "ethereum",
     "smart-contracts",
     "hardhat",
-    "hardhat-plugin"
+    "hardhat-plugin",
+    "ipfs",
+    "buildship"
   ],
   "scripts": {
     "lint:fix": "prettier --write 'src/**/*.{js,ts}' 'test/**/*.{js,ts}' && tslint --fix --config tslint.json --project tsconfig.json",
@@ -31,12 +33,14 @@
     "@types/chai": "^4.1.7",
     "@types/fs-extra": "^5.0.4",
     "@types/mocha": "^5.2.6",
-    "@types/node": "^8.10.38",
+    "@types/node": "^8.10.66",
     "chai": "^4.2.0",
     "hardhat": "^2.0.0",
+    "minimist": "^1.2.6",
     "mocha": "^7.1.2",
+    "nft.storage": "^7.0.0",
     "prettier": "2.0.5",
-    "ts-node": "^8.1.0",
+    "ts-node": "^8.10.2",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
@@ -44,5 +48,8 @@
   },
   "peerDependencies": {
     "hardhat": "^2.0.0"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.6.2"
   }
 }
