@@ -35,13 +35,27 @@ No!
 
 ## Tasks
 
-<_A description of each task added by this plugin. If it just overrides internal 
-tasks, this may not be needed_>
+This plugin creates `upload` task. 
 
-This plugin creates `upload` task. Use it simply:
+## Usage
+
+You will need nft.storage API key. You can get it [here](https://nft.storage/).
+
+You can set it in `.env` file:
+
+```
+NFT_STORAGE_API_KEY=...
+```
+
+Or set it as environment variable:
 
 ```bash
-export NFT_STORAGE_API_KEY=... # or use .env file
+export NFT_STORAGE_API_KEY=...
+```
+
+Then you can use `upload` task:
+
+```bash
 npx hardhat upload contracts/MyContract.sol
 ```
 
@@ -53,7 +67,7 @@ Uploading contracts/MyContract.sol to IPFS...
 Uploaded! Deploy at https://gate-rinkeby.buildship.xyz/deploy/Qm...
 ```
 
-Help:
+## Other parameters
 
 ```
 Usage: hardhat [GLOBAL OPTIONS] upload --args <STRING> --ascii <STRING> contract
@@ -68,12 +82,6 @@ POSITIONAL ARGUMENTS:
   contract      Contract to deploy 
 
 ```
-
-## Usage
-
-<_A description of how to use this plugin. How to use the tasks if there are any, etc._>
-
-There are no additional steps you need to take for this plugin to work.
 
 ## Need your NFT Contract?
 
