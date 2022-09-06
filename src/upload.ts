@@ -30,10 +30,15 @@ task("upload", "Uploads a compiled contract to IPFS and returns deploy link")
 
             console.log("Using contract", contract);
 
-            if (!contract || !fs.existsSync(contract)) {
+            if (!contract) {
                 console.log(
                     `Usage: npx hardhat upload [contract name] --args '"arg1","arg2"'`
                 );
+                return;
+            }
+
+            if (!fs.existsSync(contract)) {
+                console.error(`Contract ${contract} not found`);
                 return;
             }
 
