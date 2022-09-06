@@ -6,13 +6,11 @@ Used by [buildship.xyz](https://buildship.xyz), e.g. in [nft-contracts](https://
 
 ## What
 
-<_A longer, one paragraph, description of the plugin_>
-
 Lets you deploy your smart-contract from your browser, using browser wallet like Metamask.
 
-## Installation
+Uses nft.storage, so you need to create an account there and get an API key.
 
-<_A step-by-step guide on how to install the plugin_>
+## Installation
 
 ```bash
 npm install @buildship/hardhat-ipfs-upload
@@ -33,8 +31,6 @@ import "@buildship/hardhat-ipfs-upload";
 
 ## Required plugins
 
-<_The list of all the required Hardhat plugins if there are any_>
-
 No!
 
 ## Tasks
@@ -45,6 +41,7 @@ tasks, this may not be needed_>
 This plugin creates `upload` task. Use it simply:
 
 ```bash
+export NFT_STORAGE_API_KEY=... # or use .env file
 npx hardhat upload contracts/MyContract.sol
 ```
 
@@ -105,5 +102,10 @@ Feel free to open issues and PRs!
 ### 0.1.0
 
 - Initial release
+
+## TODO
+- [x] Add basic tests
+- [ ] Add ipfs upload tests
+- [ ] Accept NFT_STORAGE_API_KEY from hardhat config
 
 
