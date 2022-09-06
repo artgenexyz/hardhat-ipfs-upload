@@ -12,9 +12,7 @@ describe("Integration tests examples", function () {
     useEnvironment("hardhat-project");
 
     it("Should add the upload task", function () {
-      assert.exists(
-        this.hre.tasks.upload
-      );
+      assert.exists(this.hre.tasks.upload);
     });
 
     it("Should have action setup", function () {
@@ -43,14 +41,16 @@ describe("Unit tests examples", function () {
         const task = this.hre.tasks.upload;
 
         assert.equal(task.name, "upload");
-        assert.equal(task.description, "Uploads a compiled contract to IPFS and returns deploy link");
+        assert.equal(
+          task.description,
+          "Uploads a compiled contract to IPFS and returns deploy link"
+        );
 
         assert.exists(task.paramDefinitions.args);
         assert.exists(task.paramDefinitions.ascii);
 
         assert.equal(task.positionalParamDefinitions[0].name, "contract");
       });
-
     });
   });
 });

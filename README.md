@@ -1,58 +1,109 @@
-# Hardhat TypeScript plugin boilerplate
+# hardhat-ipfs-upload
 
-This is a sample Hardhat plugin written in TypeScript. Creating a Hardhat plugin
-can be as easy as extracting a part of your config into a different file and
-publishing it to npm.
+A Hardhat plugin to upload your build artifacts to IPFS
 
-This sample project contains an example on how to do that, but also comes with
-many more features:
+Used by [buildship.xyz](https://buildship.xyz), e.g. in [nft-contracts](https://github.com/buildship-dev/nft-contracts/).
 
-- A mocha test suite ready to use
-- TravisCI already setup
-- A package.json with scripts and publishing info
-- Examples on how to do different things
+## What
+
+<_A longer, one paragraph, description of the plugin_>
+
+Lets you deploy your smart-contract from your browser, using browser wallet like Metamask.
 
 ## Installation
 
-To start working on your project, just run
+<_A step-by-step guide on how to install the plugin_>
 
 ```bash
-npm install
+npm install @buildship/hardhat-ipfs-upload
 ```
 
-## Plugin development
+Import the plugin in your `hardhat.config.js`:
 
-Make sure to read our [Plugin Development Guide](https://hardhat.org/advanced/building-plugins.html) to learn how to build a plugin.
+```js
+require("@buildship/hardhat-ipfs-upload");
+```
 
-## Testing
+Or if you are using TypeScript, in your `hardhat.config.ts`:
 
-Running `npm run test` will run every test located in the `test/` folder. They
-use [mocha](https://mochajs.org) and [chai](https://www.chaijs.com/),
-but you can customize them.
+```ts
+import "@buildship/hardhat-ipfs-upload";
+```
 
-We recommend creating unit tests for your own modules, and integration tests for
-the interaction of the plugin with Hardhat and its dependencies.
 
-## Linting and autoformat
+## Required plugins
 
-All of Hardhat projects use [prettier](https://prettier.io/) and
-[tslint](https://palantir.github.io/tslint/).
+<_The list of all the required Hardhat plugins if there are any_>
 
-You can check if your code style is correct by running `npm run lint`, and fix
-it with `npm run lint:fix`.
+No!
 
-## Building the project
+## Tasks
 
-Just run `npm run build` ️👷
+<_A description of each task added by this plugin. If it just overrides internal 
+tasks, this may not be needed_>
 
-## README file
+This plugin creates `upload` task. Use it simply:
 
-This README describes this boilerplate project, but won't be very useful to your
-plugin users.
+```bash
+npx hardhat upload contracts/MyContract.sol
+```
 
-Take a look at `README-TEMPLATE.md` for an example of what a Hardhat plugin's
-README should look like.
+Example output:
 
-## Migrating from Buidler?
+```
+Uploading contracts/MyContract.sol to IPFS...
 
-Take a look at [the migration guide](MIGRATION.md)!
+Uploaded! Deploy at https://gate-rinkeby.buildship.xyz/deploy/Qm...
+```
+
+Help:
+
+```
+Usage: hardhat [GLOBAL OPTIONS] upload --args <STRING> --ascii <STRING> contract
+
+OPTIONS:
+
+  --args        Deploy arguments 
+  --ascii       ASCII art file path (.txt) 
+
+POSITIONAL ARGUMENTS:
+
+  contract      Contract to deploy 
+
+```
+
+## Usage
+
+<_A description of how to use this plugin. How to use the tasks if there are any, etc._>
+
+There are no additional steps you need to take for this plugin to work.
+
+## Need your NFT Contract?
+
+If you need your NFT contract to be deployed to Ethereum, try no-code NFT launcher at [https://app.buildship.xyz](https://app.buildship.xyz/).
+
+## License
+
+MIT
+
+## Contributing
+
+<_A guide on how to contribute to the project_>
+
+Feel free to open issues and PRs!
+
+## Acknowledgements
+
+<_A list of people and projects that have helped this plugin_>
+
+[@buildship](https://twitter.com/buildship_dev)
+
+## Changelog
+
+<_A list of changes in each version_>
+
+### 0.1.0
+
+- Initial release
+
+
