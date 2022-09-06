@@ -1,5 +1,7 @@
 // Adapted from https://github.com/0xleung/hardhat-etherscan/blob/b3d905ddc268ca106682ec2195862f3bd45c5180/src/solc/version.ts
 
+import fetch from "node-fetch";
+
 const COMPILERS_LIST_URL = "https://solc-bin.ethereum.org/bin/list.json";
 
 // Non-exhaustive interface for the official compiler list.
@@ -24,7 +26,6 @@ export async function getLongVersion(shortVersion: string): Promise<string> {
 
 export async function getVersions(): Promise<CompilersList> {
     try {
-        const { default: fetch } = await import("node-fetch");
         // It would be better to query an etherscan API to get this list but there's no such API yet.
         const response = await fetch(COMPILERS_LIST_URL);
 
