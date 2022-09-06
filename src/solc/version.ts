@@ -35,7 +35,9 @@ export async function getVersions(): Promise<CompilersList> {
       );
     }
 
-    return await response.json();
+    const list = await response.json();
+
+    return list as CompilersList;
   } catch (error) {
     throw new Error(
       `Failed to obtain list of solc versions. Reason: ${error.message}`
