@@ -93,13 +93,9 @@ MIT
 
 ## Contributing
 
-<_A guide on how to contribute to the project_>
-
 Feel free to open issues and PRs!
 
 ## Acknowledgements
-
-<_A list of people and projects that have helped this plugin_>
 
 [@buildship](https://twitter.com/buildship_dev)
 
@@ -115,5 +111,6 @@ Feel free to open issues and PRs!
 - [x] Add basic tests
 - [ ] Add ipfs upload tests
 - [ ] Accept NFT_STORAGE_API_KEY from hardhat config
-
+- [ ] Use public IPFS upload endpoint
+- [ ] Host website itself on IPFS
 
