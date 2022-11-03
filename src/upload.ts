@@ -66,7 +66,7 @@ task("upload", "Uploads a compiled contract to IPFS and returns deploy link")
                 const artifactDbg = `./artifacts/${contract}/${filename}.dbg.json`
                 const { buildInfo } = JSON.parse(fs.readFileSync(artifactDbg).toString());
 
-                const buildInfoPath = path.join(artifactDbg, buildInfo);
+                const buildInfoPath = path.join(`./artifacts/${contract}`, buildInfo);
 
                 const info = fs.readFileSync(buildInfoPath).toString();
 
