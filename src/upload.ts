@@ -197,7 +197,7 @@ task("upload", "Uploads a compiled contract to IPFS and returns deploy link")
                 : "?args=%5B%5D";
 
             console.log(
-                `https://gate-rinkeby.buildship.xyz/deploy/${cid}${argsString}`
+                `https://gate-goerli.buildship.xyz/deploy/${cid}${argsString}`
             );
         } catch (err) {
             console.error(err);
