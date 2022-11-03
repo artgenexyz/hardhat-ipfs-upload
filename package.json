@@ -1,6 +1,6 @@
 {
   "name": "@buildship/hardhat-ipfs-upload",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Hardhat IPFS uploader via Buildship",
   "repository": "github:buildship-dev/hardhat-ipfs-upload",
   "author": "Buildship, Inc.",
