@@ -1,5 +1,6 @@
-import { exec } from "child_process";
 import fs from "fs";
+import path from "path";
+import { exec } from "child_process";
 import { task } from "hardhat/config";
 import minimist from "minimist";
 import { Blob, NFTStorage } from "nft.storage";
@@ -58,6 +59,27 @@ task("upload", "Uploads a compiled contract to IPFS and returns deploy link")
                     .readFileSync(`./artifacts/${contract}/${filename}.json`)
                     .toString()
             );
+
+            let solcInput, solcLongVersion;
+
+            try {
+                const artifactDbg = `./artifacts/${contract}/${filename}.dbg.json`
+                const { buildInfo } = JSON.parse(fs.readFileSync(artifactDbg).toString());
+
+                const buildInfoPath = path.join(artifactDbg, buildInfo);
+
+                const info = fs.readFileSync(buildInfoPath).toString();
+
+                const { solcLongVersion: version, input } = JSON.parse(info);
+
+                solcInput = input;
+                solcLongVersion = version;
+
+                console.log(`Build info: ${buildInfoPath}`);
+            } catch (err: any) {
+                console.log(`Build info not found:\n`, err.message);
+                return;
+            }
 
             const { abi, bytecode, ...artifact } = contractArtifact;
 
@@ -157,11 +179,11 @@ task("upload", "Uploads a compiled contract to IPFS and returns deploy link")
 
             console.log(`\nDeploying ${contract}`);
 
-            const longVersion = await getLongVersion(
-                hre.config.solidity.compilers[0].version
-            );
+            // const longVersion = await getLongVersion(
+            //     hre.config.solidity.compilers[0].version
+            // );
 
-            const longVersionString = longVersion.replace(/^v/, "");
+            // const longVersionString = longVersion.replace(/^v/, "");
 
             const contractInfo = {
                 name: contractArtifact.contractName,
@@ -174,10 +196,11 @@ task("upload", "Uploads a compiled contract to IPFS and returns deploy link")
                         ...hre.config.solidity.compilers[0],
                         compiler: {
                             ...hre.config.solidity.compilers[0],
-                            version: longVersionString,
+                            version: solcLongVersion,
                         },
                     }),
                 },
+                input: solcInput,
                 flattened,
             };
 
